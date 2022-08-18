@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { useContext } from 'react';
 
 import CartIcon from "../Cart/CartIcon";
@@ -5,11 +7,11 @@ import CartContext from '../../store/cart-context';
 import classes from './HeaderCartButton.module.css';
 // import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
-const HeaderCartButton = props => {
+const HeaderCartButton = (props) => {
     const cartCtx = useContext(CartContext);
 
     const numberOfCartItems = cartCtx.items.reduce((curNumber, item) => {
-        return curNumber + item.amount;
+        return curNumber + item.length();
     }, 0);
 
     return (
